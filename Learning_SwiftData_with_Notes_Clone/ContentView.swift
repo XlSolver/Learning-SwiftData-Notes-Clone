@@ -8,16 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
-    /*@Environment (\.modelContext) private var context*/
+    @Environment (\.modelContext) private var context
+    ///access the same actor-bound context directly using the model container:
+    //let context = container.mainContext
+    
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            //to do: toolbar
+            Text("prova 2")
+            .navigationTitle("Folders")
+            .toolbar{
+                EditButton()
+            }
         }
-        .padding()
     }
 }
 

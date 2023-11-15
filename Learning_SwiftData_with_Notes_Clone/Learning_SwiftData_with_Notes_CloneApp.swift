@@ -6,6 +6,11 @@
 //
 
 import SwiftUI
+import SwiftData
+
+let configurationNotes = ModelConfiguration(isStoredInMemoryOnly: false, allowsSave: true)
+
+let container = try! ModelContainer(for: Notes.self, configurations: configurationNotes)
 
 
 
@@ -14,9 +19,6 @@ struct Learning_SwiftData_with_Notes_CloneApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                /*.modelContext(for:[
-                                Notes.self
-                ])*/
         }
     }
 }
