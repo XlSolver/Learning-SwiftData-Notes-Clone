@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F519E93F2B052AE3003FA988 /* NoteInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F519E93E2B052AE3003FA988 /* NoteInfo.swift */; };
 		F561F35A2B03CB5100194381 /* Learning_SwiftData_with_Notes_CloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F561F3592B03CB5100194381 /* Learning_SwiftData_with_Notes_CloneApp.swift */; };
 		F561F35C2B03CB5100194381 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F561F35B2B03CB5100194381 /* ContentView.swift */; };
 		F561F35E2B03CB5200194381 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F561F35D2B03CB5200194381 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F519E93E2B052AE3003FA988 /* NoteInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteInfo.swift; sourceTree = "<group>"; };
 		F561F3562B03CB5100194381 /* Learning_SwiftData_with_Notes_Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Learning_SwiftData_with_Notes_Clone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F561F3592B03CB5100194381 /* Learning_SwiftData_with_Notes_CloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Learning_SwiftData_with_Notes_CloneApp.swift; sourceTree = "<group>"; };
 		F561F35B2B03CB5100194381 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +36,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F519E93D2B052AC7003FA988 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				F519E93E2B052AE3003FA988 /* NoteInfo.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		F561F34D2B03CB5100194381 = {
 			isa = PBXGroup;
 			children = (
@@ -53,6 +63,7 @@
 		F561F3582B03CB5100194381 /* Learning_SwiftData_with_Notes_Clone */ = {
 			isa = PBXGroup;
 			children = (
+				F519E93D2B052AC7003FA988 /* Component */,
 				F5BE0BF22B04C37C0066526C /* Model */,
 				F561F3592B03CB5100194381 /* Learning_SwiftData_with_Notes_CloneApp.swift */,
 				F561F35B2B03CB5100194381 /* ContentView.swift */,
@@ -151,6 +162,7 @@
 				F5BE0BF42B04C3940066526C /* Model.swift in Sources */,
 				F561F35C2B03CB5100194381 /* ContentView.swift in Sources */,
 				F561F35A2B03CB5100194381 /* Learning_SwiftData_with_Notes_CloneApp.swift in Sources */,
+				F519E93F2B052AE3003FA988 /* NoteInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
