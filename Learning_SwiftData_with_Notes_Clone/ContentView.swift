@@ -22,7 +22,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            //to do: toolbar
+            //to do: Expandable list
             List{
                 Section {
                     NavigationLink(destination: NoteInfo()) {
@@ -73,10 +73,19 @@ struct ContentView: View {
                 //                }
                 
             }
-            .listStyle(SidebarListStyle())
+            .listStyle(InsetGroupedListStyle())
             .navigationTitle("Folders")
             .toolbar{
                 EditButton()
+                    .foregroundStyle(.yellow)
+            }
+            .toolbar{
+                ToolbarItemGroup(placement: .bottomBar){
+                    Image(systemName: "folder.badge.plus")
+                        .foregroundStyle(.yellow)
+                    Image(systemName: "square.and.pencil")
+                        .foregroundStyle(.yellow)
+                }
             }
             .searchable(text: $searchText)
         }
