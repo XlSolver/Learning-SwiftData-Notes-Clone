@@ -10,7 +10,7 @@ import SwiftData
 
 ///Main storage class for notes
 @Model
-class Notes {
+class Notes: ObservableObject {
     var id = UUID()
     var name: String
     var textField: String
@@ -24,4 +24,8 @@ class Notes {
         self.image = image
         self.date = date
     }
+}
+
+struct Folders {
+    var name: String
 }
