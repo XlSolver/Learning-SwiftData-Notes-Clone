@@ -8,9 +8,9 @@
 import SwiftUI
 import SwiftData
 
-let configurationNotes = ModelConfiguration(isStoredInMemoryOnly: false, allowsSave: true) //isStoredInMemoryOnly creates a dummy container
+let configurationNotes = ModelConfiguration(isStoredInMemoryOnly: true, allowsSave: true) //isStoredInMemoryOnly creates a dummy container
 
-let container: ModelContainer = {
+let notesContainer: ModelContainer = {
     let schema = Schema([Notes.self])
     let container = try! ModelContainer(for: schema, configurations: configurationNotes)
     return container
@@ -25,6 +25,6 @@ struct Learning_SwiftData_with_Notes_CloneApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(container)
+        .modelContainer(notesContainer)
     }
 }
