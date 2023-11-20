@@ -7,25 +7,37 @@
 
 import Foundation
 import SwiftData
+import SwiftUI
 
 ///Main storage class for notes
 @Model
-class Notes: ObservableObject {
+class Notes: Identifiable {
     var id = UUID()
     var name: String
-    var textField: String
-    var image: [Data] = []
     var date: Date
+    var Content: NoteContent
+    
     ///Initializer
-    init(id: UUID = UUID(), name: String, textField: String, image: [Data], date: Date) {
+    init(id: UUID = UUID(), name: String, image: [Data], textField: String, date: Date) {
         self.id = id
         self.name = name
-        self.textField = textField
-        self.image = image
+        self.Content = NoteContent(textField: textField, image: image)
         self.date = date
     }
 }
 
-struct Folders {
+@Model
+class NoteContent {
+    var textField: String
+    var image: [Data] = []
+    
+    init(textField: String, image: [Data]) {
+        self.textField = textField
+        self.image = image
+    }
+}
+
+struct Folders: Identifiable {
+    var id = UUID()
     var name: String
 }

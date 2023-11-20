@@ -17,8 +17,12 @@ struct ContentView: View {
     //let context = container.mainContext
     @Query var allNotes: [Notes]
     @State private var searchText: String = ""
-    
-    
+    @State private var Title: String = ""
+    @State private var TextContent: String = ""
+    @State private var notesList: [Notes] = []
+    @State private var foldersList: [Folders] = []
+    @State var folderName: String = ""
+    @State private var image: [Data] = []
     
     var body: some View {
         NavigationStack {
@@ -83,23 +87,28 @@ struct ContentView: View {
                 ToolbarItemGroup(placement: .bottomBar){
                     Image(systemName: "folder.badge.plus")
                         .foregroundStyle(.yellow)
-                    Image(systemName: "square.and.pencil")
-                        .foregroundStyle(.yellow)
+                    NavigationLink(destination: CreateNewNoteView()) {
+                        Image(systemName: "square.and.pencil")
+                    }
+                    .foregroundStyle(.yellow)
                 }
             }
             .searchable(text: $searchText)
         }
-        
+        .accentColor(/*@START_MENU_TOKEN@*/.yellow/*@END_MENU_TOKEN@*/)
     }
 }
 
 
 #Preview {
     ContentView()
+        .modelContainer(notesContainer)
 }
 
 
 //folders: .constant([Folder(name: "All iCloud", view: AnyView(Text("View 1")))])
 //using a binding, to create a preview i need to give a preview to this folder, since it is a binding i need to give a value this way that is costant
+
+
 
 
