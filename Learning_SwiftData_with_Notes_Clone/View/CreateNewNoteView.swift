@@ -6,13 +6,35 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct CreateNewNoteView: View {
+    @Environment (\.modelContext) private var context
+    @State private var Title: String = ""
+    @State private var image: [Data] = []
+    @State private var TextContent: String = ""
+    
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            
+                //.navigationTitle("All iCloud")
+        }
+        .toolbar{
+            ToolbarItemGroup(placement: .topBarLeading){
+                Image(systemName: "square.and.pencil")
+            }
+        }
+    }
+    
+    func addNote() {
+        let newNote = Notes(name: Title, image: image, textField: TextContent, date: Date())
+        context.insert(newNote)
+        return
     }
 }
 
 #Preview {
     CreateNewNoteView()
+        .modelContainer(notesContainer)
 }
