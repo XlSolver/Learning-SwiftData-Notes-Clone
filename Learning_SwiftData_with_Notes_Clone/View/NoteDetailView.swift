@@ -39,5 +39,6 @@ struct NoteDetailView: View {
     
     return NoteDetailView(note: note)
     
-        .modelContainer(previewContainer)
+    
+        .modelContainer(notesContainer)
 }

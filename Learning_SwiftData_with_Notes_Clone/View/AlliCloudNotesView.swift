@@ -28,5 +28,5 @@ struct AlliCloudNotesView: View {
 
 #Preview {
     AlliCloudNotesView()
-        .modelContainer(previewContainer)
+        .modelContainer(notesContainer)
 }

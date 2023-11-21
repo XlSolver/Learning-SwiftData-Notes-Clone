@@ -26,6 +26,7 @@ struct CreateNewNoteView: View {
                 .foregroundStyle(.black)
             ///Text editor to allow user to fill an infinite page that support different formats
             TextEditor(text: $fullText)
+                .scrollDismissesKeyboard(.interactively)
                 .focused($toolbarVisibile)
                 .toolbar{
                     ToolbarItemGroup(placement: .topBarTrailing){
@@ -37,6 +38,11 @@ struct CreateNewNoteView: View {
                             Image(systemName: "ellipsis.circle")
                                 .foregroundStyle(.yellow)
                         }
+                        Button(action: addNote){
+                            Text("Done")
+                                
+                        }.foregroundStyle(.yellow)
+                        
                     }
                     ToolbarItemGroup(placement: .keyboard){
                         HStack {
@@ -80,8 +86,9 @@ struct CreateNewNoteView: View {
     }
     
     func addNote() {
-        let newNote = Notes(name: Title, content: NoteContent(textField: "testetestestse", image: []), date: Date())
+        let newNote = Notes(name: Title, content: NoteContent(textField: fullText, image: image), date: Date.now)
         context.insert(newNote)
+        //to do: it does not save into the memory
         return
     }
     
@@ -96,5 +103,5 @@ struct CreateNewNoteView: View {
 
 #Preview {
     CreateNewNoteView()
-        .modelContainer(previewContainer)
+        .modelContainer(notesContainer)
 }
