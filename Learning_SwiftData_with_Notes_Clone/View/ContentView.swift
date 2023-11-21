@@ -29,7 +29,7 @@ struct ContentView: View {
             //to do: Expandable list
             List{
                 Section {
-                    NavigationLink(destination: NoteInfo()) {
+                    NavigationLink(destination: AlliCloudNotesView()) {
                         HStack{
                             Image(systemName: "folder")
                                 .foregroundStyle(.yellow)
@@ -77,7 +77,6 @@ struct ContentView: View {
                 //                }
                 
             }
-            .listStyle(InsetGroupedListStyle())
             .navigationTitle("Folders")
             .toolbar{
                 EditButton()
@@ -102,7 +101,7 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(notesContainer)
+        .modelContainer(previewContainer)
 }
 
 

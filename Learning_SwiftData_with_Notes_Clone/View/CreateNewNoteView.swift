@@ -20,7 +20,8 @@ struct CreateNewNoteView: View {
     var body: some View {
         NavigationStack {
             ///The notes app is able to create a title automatically
-            TextField("Title", text: $Title)
+            TextField("", text: $Title)
+                .font(.title)
                 .bold()
                 .foregroundStyle(.black)
             ///Text editor to allow user to fill an infinite page that support different formats
@@ -72,6 +73,7 @@ struct CreateNewNoteView: View {
                         
                     }
                 }
+                .foregroundStyle(.black)
         }
         .foregroundStyle(.yellow)
         
@@ -94,5 +96,5 @@ struct CreateNewNoteView: View {
 
 #Preview {
     CreateNewNoteView()
-        .modelContainer(notesContainer)
+        .modelContainer(previewContainer)
 }

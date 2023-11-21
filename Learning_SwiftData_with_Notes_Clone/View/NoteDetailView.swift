@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct NoteDetailView: View {
     @Environment (\.modelContext) private var context
@@ -13,13 +14,30 @@ struct NoteDetailView: View {
     
     var body: some View {
         NavigationStack{
+            Text(note.name)
             Text(note.content.textField)
+            
+            
                 .navigationTitle(note.name)
         }
     }
 }
 
 #Preview {
-    NoteDetailView(note: Notes(id: UUID(), name: "Name", content: NoteContent(textField: "testestestest", image: []), date: Date.now))
+    //it needs to be recreated for every view
+    let schema = Schema([
+        Notes.self,
+        NoteContent.self,
+        TestModel.self
+    ])
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: schema, configurations: config)
+    
+    let note = Notes(name: "Test note", content: NoteContent(textField: "Test title", image: []), date: Date.now)
+    //This creates a binding between context and model into database
+    container.mainContext.insert(note)
+    
+    return NoteDetailView(note: note)
+    
         .modelContainer(previewContainer)
 }
