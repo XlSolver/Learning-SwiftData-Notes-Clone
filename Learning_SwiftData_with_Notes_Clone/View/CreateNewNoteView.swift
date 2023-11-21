@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import Foundation
 
 struct CreateNewNoteView: View {
     @Environment (\.modelContext) private var context
@@ -23,9 +24,10 @@ struct CreateNewNoteView: View {
             TextField("", text: $Title)
                 .font(.title)
                 .bold()
-                .foregroundStyle(.black)
+                .foregroundStyle(Color("TextColor"))
             ///Text editor to allow user to fill an infinite page that support different formats
             TextEditor(text: $fullText)
+                .foregroundStyle(Color("TextColor"))
                 .scrollDismissesKeyboard(.interactively)
                 .focused($toolbarVisibile)
                 .toolbar{
@@ -40,10 +42,10 @@ struct CreateNewNoteView: View {
                         }
                         Button(action: addNote){
                             Text("Done")
-                                
                         }.foregroundStyle(.yellow)
                         
                     }
+                    //to do: Must disappear when the keyboard is not active
                     ToolbarItemGroup(placement: .keyboard){
                         HStack {
                             Button("text format", systemImage: "textformat.alt") {
@@ -84,12 +86,11 @@ struct CreateNewNoteView: View {
         .foregroundStyle(.yellow)
         
     }
-    
-    func addNote() {
+    ///Function that saves the note from the context into the database
+    private func addNote() {
         let newNote = Notes(name: Title, content: NoteContent(textField: fullText, image: image), date: Date.now)
         context.insert(newNote)
         //to do: it does not save into the memory
-        return
     }
     
     func shareButton() {

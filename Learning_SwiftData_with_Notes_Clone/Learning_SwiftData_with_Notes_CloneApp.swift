@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-let configurationNotes = ModelConfiguration(isStoredInMemoryOnly: true, allowsSave: true) //isStoredInMemoryOnly creates a dummy container
+let configurationNotes = ModelConfiguration(isStoredInMemoryOnly: false, allowsSave: true) //isStoredInMemoryOnly creates a dummy container! if true it doesn't store data permanetly!!!
 
 let notesContainer: ModelContainer = {
     let schema = Schema([Notes.self, NoteContent.self, TestModel.self])
