@@ -14,23 +14,66 @@ struct CreateNewNoteView: View {
     @State private var image: [Data] = []
     @State private var TextContent: String = ""
     @State private var fullText: String = ""
+    @FocusState private var toolbarVisibile: Bool
     
     
     var body: some View {
         NavigationStack {
+            ///The notes app is able to create a title automatically
+            //TextField("Title", text: $Title)
+            ///Text editor to allow user to fill an infinite page that support different formats
             TextEditor(text: $fullText)
+                .focused($toolbarVisibile)
+                .toolbar{
+                    ToolbarItemGroup(placement: .topBarTrailing){
+                        Button(action: shareButton) {
+                            Image(systemName: "square.and.arrow.up")
+                                .foregroundColor(.yellow)
+                        }
+                        Button(action: addNote){
+                            Image(systemName: "ellipsis.circle")
+                                .foregroundStyle(.yellow)
+                        }
+                    }
+                    ToolbarItemGroup(placement: .keyboard){
+                        HStack {
+                            Button("text format", systemImage: "textformat.alt") {
+                                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                            }
+                            .foregroundStyle(.gray)
+                            Spacer()
+                            Button("Checklist", systemImage: "checklist") {
+                                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                            }
+                            .foregroundStyle(.gray)
+                            Spacer()
+                            Button("table grid", systemImage: "table"){
+                                
+                            }
+                            .foregroundStyle(.gray)
+                            Spacer()
+                            Button("camera", systemImage: "camera"){
+                                
+                            }
+                            .foregroundStyle(.gray)
+                            Spacer()
+                            Button("Hand input", systemImage: "pencil.tip.crop.circle"){
+                                
+                            }
+                            .foregroundStyle(.gray)
+                            Spacer()
+                            Button("Close", systemImage: "xmark"){
+                                
+                            }
+                            .foregroundStyle(.gray)
+                        }
+                        
+                    }
+                }
         }
         .foregroundStyle(.yellow)
-        .toolbar{
-            ToolbarItemGroup(placement: .topBarTrailing){
-                Button(action: shareButton) {
-                    Image(systemName: "square.and.arrow.up")
-                            .foregroundColor(.yellow)
-                }
-            }
-        }
+        
     }
-    
     
     func addNote() {
         let newNote = Notes(name: Title, image: image, textField: TextContent, date: Date())
@@ -40,10 +83,10 @@ struct CreateNewNoteView: View {
     
     func shareButton() {
         print("Condividi")
-//            let url = URL(string: "https://www.swiftuiio.com/")
-//            let activityController = UIActivityViewController(activityItems: [url!], applicationActivities: nil)
-//
-//            UIApplication.shared.windows.first?.rootViewController!.present(activityController, animated: true, completion: nil)
+        //            let url = URL(string: "https://www.swiftuiio.com/")
+        //            let activityController = UIActivityViewController(activityItems: [url!], applicationActivities: nil)
+        //
+        //            UIApplication.shared.windows.first?.rootViewController!.present(activityController, animated: true, completion: nil)
     }
 }
 
