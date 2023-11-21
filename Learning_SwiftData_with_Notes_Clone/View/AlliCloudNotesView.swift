@@ -6,16 +6,20 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AlliCloudNotesView: View {
     @Environment (\.modelContext) private var context
-    @State private var notes: [Notes]
+    @Query private var notes: [Notes]
     
     var body: some View {
-        List {
-            ForEach($notes){ note in
-                VStack{
-                    note
+        NavigationStack {
+            List {
+                ForEach(notes) { note in
+                    NavigationLink(destination: NoteDetailView(note: note)) {
+                        Text(note.name)
+                        Text(note.content.textField)
+                    }
                 }
             }
         }
@@ -24,5 +28,5 @@ struct AlliCloudNotesView: View {
 
 #Preview {
     AlliCloudNotesView()
-        .modelContainer(notesContainer)
+        .modelContainer(previewContainer)
 }

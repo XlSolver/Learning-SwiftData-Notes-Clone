@@ -20,7 +20,9 @@ struct CreateNewNoteView: View {
     var body: some View {
         NavigationStack {
             ///The notes app is able to create a title automatically
-            //TextField("Title", text: $Title)
+            TextField("Title", text: $Title)
+                .bold()
+                .foregroundStyle(.black)
             ///Text editor to allow user to fill an infinite page that support different formats
             TextEditor(text: $fullText)
                 .focused($toolbarVisibile)
@@ -76,7 +78,7 @@ struct CreateNewNoteView: View {
     }
     
     func addNote() {
-        let newNote = Notes(name: Title, image: image, textField: TextContent, date: Date())
+        let newNote = Notes(name: Title, content: NoteContent(textField: "testetestestse", image: []), date: Date())
         context.insert(newNote)
         return
     }

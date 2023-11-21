@@ -7,26 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F515EDEB2B0CF85600CC1CC8 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F515EDEA2B0CF85600CC1CC8 /* TestView.swift */; };
 		F519E93F2B052AE3003FA988 /* NoteInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F519E93E2B052AE3003FA988 /* NoteInfo.swift */; };
 		F561F35A2B03CB5100194381 /* Learning_SwiftData_with_Notes_CloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F561F3592B03CB5100194381 /* Learning_SwiftData_with_Notes_CloneApp.swift */; };
 		F561F35C2B03CB5100194381 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F561F35B2B03CB5100194381 /* ContentView.swift */; };
 		F561F35E2B03CB5200194381 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F561F35D2B03CB5200194381 /* Assets.xcassets */; };
 		F561F3612B03CB5200194381 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F561F3602B03CB5200194381 /* Preview Assets.xcassets */; };
+		F5AF8D582B0CF32A00BFCED7 /* previewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AF8D572B0CF32A00BFCED7 /* previewContainer.swift */; };
 		F5BE0BF42B04C3940066526C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BE0BF32B04C3940066526C /* Model.swift */; };
 		F5C8040A2B0CD3D40093FABE /* AlliCloudNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C804092B0CD3D40093FABE /* AlliCloudNotesView.swift */; };
 		F5D2B87F2B07EE200001C054 /* CreateNewNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D2B87E2B07EE200001C054 /* CreateNewNoteView.swift */; };
+		F5FF556F2B0CEDD200209BAC /* NoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FF556E2B0CEDD200209BAC /* NoteDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F515EDEA2B0CF85600CC1CC8 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		F519E93E2B052AE3003FA988 /* NoteInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteInfo.swift; sourceTree = "<group>"; };
 		F561F3562B03CB5100194381 /* Learning_SwiftData_with_Notes_Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Learning_SwiftData_with_Notes_Clone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F561F3592B03CB5100194381 /* Learning_SwiftData_with_Notes_CloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Learning_SwiftData_with_Notes_CloneApp.swift; sourceTree = "<group>"; };
 		F561F35B2B03CB5100194381 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F561F35D2B03CB5200194381 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F561F3602B03CB5200194381 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F5AF8D572B0CF32A00BFCED7 /* previewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = previewContainer.swift; sourceTree = "<group>"; };
 		F5BE0BF32B04C3940066526C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		F5C804092B0CD3D40093FABE /* AlliCloudNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlliCloudNotesView.swift; sourceTree = "<group>"; };
 		F5D2B87E2B07EE200001C054 /* CreateNewNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewNoteView.swift; sourceTree = "<group>"; };
+		F5FF556E2B0CEDD200209BAC /* NoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +86,7 @@
 		F561F35F2B03CB5200194381 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				F5AF8D572B0CF32A00BFCED7 /* previewContainer.swift */,
 				F561F3602B03CB5200194381 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -99,6 +106,8 @@
 				F561F35B2B03CB5100194381 /* ContentView.swift */,
 				F5D2B87E2B07EE200001C054 /* CreateNewNoteView.swift */,
 				F5C804092B0CD3D40093FABE /* AlliCloudNotesView.swift */,
+				F5FF556E2B0CEDD200209BAC /* NoteDetailView.swift */,
+				F515EDEA2B0CF85600CC1CC8 /* TestView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -179,6 +188,9 @@
 				F519E93F2B052AE3003FA988 /* NoteInfo.swift in Sources */,
 				F5C8040A2B0CD3D40093FABE /* AlliCloudNotesView.swift in Sources */,
 				F5D2B87F2B07EE200001C054 /* CreateNewNoteView.swift in Sources */,
+				F515EDEB2B0CF85600CC1CC8 /* TestView.swift in Sources */,
+				F5AF8D582B0CF32A00BFCED7 /* previewContainer.swift in Sources */,
+				F5FF556F2B0CEDD200209BAC /* NoteDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,23 +11,23 @@ import SwiftUI
 
 ///Main storage class for notes
 @Model
-class Notes: Identifiable {
+final class Notes: Identifiable {
     var id = UUID()
     var name: String
     var date: Date
-    var Content: NoteContent
+    var content: NoteContent
     
     ///Initializer
-    init(id: UUID = UUID(), name: String, image: [Data], textField: String, date: Date) {
+    init(id: UUID = UUID(), name: String, content: NoteContent, date: Date) {
         self.id = id
         self.name = name
-        self.Content = NoteContent(textField: textField, image: image)
+        self.content = content
         self.date = date
     }
 }
 
 @Model
-class NoteContent {
+final class NoteContent {
     var textField: String
     var image: [Data] = []
     
@@ -40,4 +40,14 @@ class NoteContent {
 struct Folders: Identifiable {
     var id = UUID()
     var name: String
+}
+
+
+@Model
+final class TestModel {
+    var name: String
+    
+    init(name: String) {
+        self.name = name
+    }
 }

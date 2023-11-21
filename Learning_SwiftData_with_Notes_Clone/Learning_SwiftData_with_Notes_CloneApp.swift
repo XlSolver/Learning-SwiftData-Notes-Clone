@@ -11,8 +11,9 @@ import SwiftData
 let configurationNotes = ModelConfiguration(isStoredInMemoryOnly: true, allowsSave: true) //isStoredInMemoryOnly creates a dummy container
 
 let notesContainer: ModelContainer = {
-    let schema = Schema([Notes.self])
+    let schema = Schema([Notes.self, NoteContent.self, TestModel.self])
     let container = try! ModelContainer(for: schema, configurations: configurationNotes)
+    
     return container
 }() 
 
