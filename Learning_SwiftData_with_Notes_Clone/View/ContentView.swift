@@ -31,25 +31,30 @@ struct ContentView: View {
                 ///iCloud section
                 Section {
                     NavigationLink(destination: AlliCloudNotesView()) {
+                        ///System image and text
                         HStack{
                             Image(systemName: "folder")
                                 .foregroundStyle(.yellow)
                             Text("All iCloud")
                         }
+                        
                     }
                     ///accessibility modifier
                     .accessibilityAddTraits([.isButton])
                     .accessibilityLabel("All notes")
                     NavigationLink(destination: NoteInfo()) {
+                        ///System image and text
                         HStack{
                             Image(systemName: "folder")
                                 .foregroundStyle(.yellow)
                             Text("Notes")
                         }
                     }
+                    ///accessibility modifier
                     .accessibilityAddTraits([.isButton])
                     .accessibilityLabel("Phone notes")
                     NavigationLink(destination: NoteInfo()) {
+                        ///System image and text
                         HStack{
                             Image(systemName: "folder")
                                 .foregroundStyle(.yellow)
@@ -57,12 +62,14 @@ struct ContentView: View {
                         }
                     }
                     NavigationLink(destination: NoteInfo()) {
+                        ///System image and text
                         HStack{
                             Image(systemName: "trash")
                                 .foregroundStyle(.yellow)
                             Text("Recently Deleted")
                         }
                     }
+                    ///accessibility modifier
                     .accessibilityAddTraits([.isButton])
                     .accessibilityLabel("Trash")
                 } header: {
@@ -71,8 +78,9 @@ struct ContentView: View {
                         .font(.headline)
                     
                 }
-                .accessibilityAddTraits([.isHeader])
-                .accessibilityLabel("iCloud list")
+                ///accessibility modifier
+//                .accessibilityAddTraits([.isHeader])
+//                .accessibilityLabel("iCloud list")
                 Section{
                     
                 } header: {
@@ -87,39 +95,41 @@ struct ContentView: View {
                 //                }
                 
             }
-            .accessibilityAddTraits([.isButton])
             .navigationTitle("Folders")
             .toolbar{
                 EditButton()
+                    .foregroundStyle(.yellow)
+                ///accessibility modifier
                     .accessibilitySortPriority(1)
                     .accessibilityAddTraits([.isButton])
-                    .foregroundStyle(.yellow)
                     .accessibilityLabel("Edit")
             }
             .toolbar{
                 ToolbarItemGroup(placement: .bottomBar){
                     Image(systemName: "folder.badge.plus")
                         .foregroundStyle(.yellow)
+                        .accessibilityAddTraits([.isButton])
+                        .accessibilityLabel("New folder")
                     
                     NavigationLink(destination: CreateNewNoteView()) {
                         Image(systemName: "square.and.pencil")
-                        
-                        
                     }
-                    .accessibilityAddTraits([.isButton])
                     .foregroundStyle(.yellow)
-                    .accessibilityLabel("New folder")
+                    ///accessibility modifier
+                    .accessibilityAddTraits([.isButton])
+                    .accessibilityLabel("New note")
+                    
+                    
                 }
             }
-            .searchable(text: $searchText)
-            .accessibilityHint("Double tap to open the keyboard")
-            .accessibilityLabel("Search")
-            
-            
+            .searchable(text: $searchText){
+
+            }
         }
+        .accentColor(.yellow)
+        ///accessibility modifier
         .accessibilitySortPriority(1)
         .accessibilityAddTraits([.isHeader])
-        .accentColor(.yellow)
         .accessibilityLabel("Folders")
     }
 }
