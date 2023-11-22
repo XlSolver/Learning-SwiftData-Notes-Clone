@@ -20,6 +20,7 @@ struct AlliCloudNotesView: View {
                         Text(note.name)
                         Text(note.content.textField)
                     }
+                    .hidden()
                 }
             }
         }

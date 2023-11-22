@@ -22,9 +22,11 @@ struct CreateNewNoteView: View {
         NavigationStack {
             ///The notes app is able to create a title automatically
             TextField("", text: $Title)
+            //should not start from the border
                 .font(.title)
                 .bold()
                 .foregroundStyle(Color("TextColor"))
+                .padding()
             ///Text editor to allow user to fill an infinite page that support different formats
             TextEditor(text: $fullText)
                 .foregroundStyle(Color("TextColor"))
@@ -49,12 +51,12 @@ struct CreateNewNoteView: View {
                     ToolbarItemGroup(placement: .keyboard){
                         HStack {
                             Button("text format", systemImage: "textformat.alt") {
-                                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                                
                             }
                             .foregroundStyle(.gray)
                             Spacer()
                             Button("Checklist", systemImage: "checklist") {
-                                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                                
                             }
                             .foregroundStyle(.gray)
                             Spacer()
@@ -78,11 +80,12 @@ struct CreateNewNoteView: View {
                             }
                             .foregroundStyle(.gray)
                         }
-                        
                     }
                 }
                 .foregroundStyle(.black)
+                .padding()
         }
+        
         .foregroundStyle(.yellow)
         
     }

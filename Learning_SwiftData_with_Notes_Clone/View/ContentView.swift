@@ -33,6 +33,7 @@ struct ContentView: View {
                         HStack{
                             Image(systemName: "folder")
                                 .foregroundStyle(.yellow)
+                            
                             Text("All iCloud")
                         }
                     }
@@ -94,7 +95,7 @@ struct ContentView: View {
             }
             .searchable(text: $searchText)
         }
-        .accentColor(/*@START_MENU_TOKEN@*/.yellow/*@END_MENU_TOKEN@*/)
+        .accentColor(.yellow)
     }
 }
 
