@@ -21,6 +21,7 @@ struct AlliCloudNotesView: View {
                         Text(note.content.textField)
                     }
                     .hidden()
+                    .accessibilityLabel("All notes")
                 }
             }
         }

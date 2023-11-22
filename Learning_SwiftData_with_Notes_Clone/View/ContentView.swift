@@ -28,15 +28,18 @@ struct ContentView: View {
         NavigationStack {
             //to do: Expandable list
             List{
+                ///iCloud section
                 Section {
                     NavigationLink(destination: AlliCloudNotesView()) {
                         HStack{
                             Image(systemName: "folder")
                                 .foregroundStyle(.yellow)
-                            
                             Text("All iCloud")
                         }
                     }
+                    ///accessibility modifier
+                    .accessibilityAddTraits([.isButton])
+                    .accessibilityLabel("All notes")
                     NavigationLink(destination: NoteInfo()) {
                         HStack{
                             Image(systemName: "folder")
@@ -44,6 +47,8 @@ struct ContentView: View {
                             Text("Notes")
                         }
                     }
+                    .accessibilityAddTraits([.isButton])
+                    .accessibilityLabel("Phone notes")
                     NavigationLink(destination: NoteInfo()) {
                         HStack{
                             Image(systemName: "folder")
@@ -58,6 +63,8 @@ struct ContentView: View {
                             Text("Recently Deleted")
                         }
                     }
+                    .accessibilityAddTraits(/*@START_MENU_TOKEN@*/[.isButton]/*@END_MENU_TOKEN@*/)
+                    .accessibilityLabel("Fisica 1")
                 } header: {
                     Text("iCloud")
                         .textCase(.none)
@@ -78,22 +85,34 @@ struct ContentView: View {
                 //                }
                 
             }
+            .accessibilitySortPriority(/*@START_MENU_TOKEN@*/5/*@END_MENU_TOKEN@*/)
+            .accessibilityAddTraits([.isButton, .isHeader])
             .navigationTitle("Folders")
             .toolbar{
                 EditButton()
+                    .accessibilitySortPriority(/*@START_MENU_TOKEN@*/5/*@END_MENU_TOKEN@*/)
+                    .accessibilityAddTraits([.isButton])
                     .foregroundStyle(.yellow)
+                    .accessibilityLabel("Edit")
             }
             .toolbar{
                 ToolbarItemGroup(placement: .bottomBar){
                     Image(systemName: "folder.badge.plus")
+                        .accessibilitySortPriority(/*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                        .accessibilityAddTraits(/*@START_MENU_TOKEN@*/.isHeader/*@END_MENU_TOKEN@*/)
                         .foregroundStyle(.yellow)
+                        .accessibilityLabel("New folder")
                     NavigationLink(destination: CreateNewNoteView()) {
                         Image(systemName: "square.and.pencil")
+                            .accessibilityAddTraits(/*@START_MENU_TOKEN@*/.isHeader/*@END_MENU_TOKEN@*/)
+                            .accessibilityLabel("New note")
                     }
                     .foregroundStyle(.yellow)
                 }
             }
             .searchable(text: $searchText)
+            .accessibilityLabel("iCloud")
+            
         }
         .accentColor(.yellow)
     }
