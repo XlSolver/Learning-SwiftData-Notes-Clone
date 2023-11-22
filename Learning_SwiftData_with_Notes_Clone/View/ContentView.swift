@@ -63,14 +63,16 @@ struct ContentView: View {
                             Text("Recently Deleted")
                         }
                     }
-                    .accessibilityAddTraits(/*@START_MENU_TOKEN@*/[.isButton]/*@END_MENU_TOKEN@*/)
-                    .accessibilityLabel("Fisica 1")
+                    .accessibilityAddTraits([.isButton])
+                    .accessibilityLabel("Trash")
                 } header: {
                     Text("iCloud")
                         .textCase(.none)
                         .font(.headline)
                     
                 }
+                .accessibilityAddTraits([.isHeader])
+                .accessibilityLabel("iCloud list")
                 Section{
                     
                 } header: {
@@ -85,12 +87,11 @@ struct ContentView: View {
                 //                }
                 
             }
-            .accessibilitySortPriority(/*@START_MENU_TOKEN@*/5/*@END_MENU_TOKEN@*/)
-            .accessibilityAddTraits([.isButton, .isHeader])
+            .accessibilityAddTraits([.isButton])
             .navigationTitle("Folders")
             .toolbar{
                 EditButton()
-                    .accessibilitySortPriority(/*@START_MENU_TOKEN@*/5/*@END_MENU_TOKEN@*/)
+                    .accessibilitySortPriority(1)
                     .accessibilityAddTraits([.isButton])
                     .foregroundStyle(.yellow)
                     .accessibilityLabel("Edit")
@@ -98,23 +99,28 @@ struct ContentView: View {
             .toolbar{
                 ToolbarItemGroup(placement: .bottomBar){
                     Image(systemName: "folder.badge.plus")
-                        .accessibilitySortPriority(/*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
-                        .accessibilityAddTraits(/*@START_MENU_TOKEN@*/.isHeader/*@END_MENU_TOKEN@*/)
                         .foregroundStyle(.yellow)
-                        .accessibilityLabel("New folder")
+                    
                     NavigationLink(destination: CreateNewNoteView()) {
                         Image(systemName: "square.and.pencil")
-                            .accessibilityAddTraits(/*@START_MENU_TOKEN@*/.isHeader/*@END_MENU_TOKEN@*/)
-                            .accessibilityLabel("New note")
+                        
+                        
                     }
+                    .accessibilityAddTraits([.isButton])
                     .foregroundStyle(.yellow)
+                    .accessibilityLabel("New folder")
                 }
             }
             .searchable(text: $searchText)
-            .accessibilityLabel("iCloud")
+            .accessibilityHint("Double tap to open the keyboard")
+            .accessibilityLabel("Search")
+            
             
         }
+        .accessibilitySortPriority(1)
+        .accessibilityAddTraits([.isHeader])
         .accentColor(.yellow)
+        .accessibilityLabel("Folders")
     }
 }
 

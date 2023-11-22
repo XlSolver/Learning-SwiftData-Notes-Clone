@@ -18,10 +18,11 @@ struct AlliCloudNotesView: View {
                 ForEach(notes) { note in
                     NavigationLink(destination: NoteDetailView(note: note)) {
                         Text(note.name)
+                            .accessibilityLabel("\(note.name) note")
+                            .accessibilityAddTraits(.isButton)
                         Text(note.content.textField)
+                            .accessibilityLabel(note.content.textField)
                     }
-                    .hidden()
-                    .accessibilityLabel("All notes")
                 }
             }
         }

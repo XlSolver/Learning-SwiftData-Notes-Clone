@@ -15,7 +15,10 @@ struct NoteDetailView: View {
     var body: some View {
         NavigationStack{
             Text(note.name)
+                .accessibilityAddTraits([.isButton])
+                .accessibilityLabel("\(note.name) note")
             Text(note.content.textField)
+                .lineLimit(10)
             
             
                 .navigationTitle(note.name)
