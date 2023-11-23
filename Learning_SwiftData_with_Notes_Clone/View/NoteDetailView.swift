@@ -20,8 +20,6 @@ struct NoteDetailView: View {
                 .accessibilityLabel("\(note.name) note")
             Text(note.content.textField)
                 .lineLimit(10)
-            
-            
                 .navigationTitle(note.name)
         }
     }

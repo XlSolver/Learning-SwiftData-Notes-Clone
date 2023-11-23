@@ -10,21 +10,41 @@ import SwiftData
 
 struct AlliCloudNotesView: View {
     @Environment (\.modelContext) private var context
-    @Query private var notes: [Notes]
-    
+    @Query var notes: [Notes]
+
     var body: some View {
-        NavigationStack {
+        NavigationView {
             List {
-                ForEach(notes) { note in
+                ForEach(notes, id: \.self) { note in
                     NavigationLink(destination: NoteDetailView(note: note)) {
-                        Text(note.name)
-                            .accessibilityLabel("\(note.name) note")
-                            .accessibilityAddTraits(.isButton)
-                        Text(note.content.textField)
-                            .accessibilityLabel(note.content.textField)
+                        HStack {
+                            // If the note has an image, display the first one
+                            if let firstImage = note.content.image.first {
+                                Image(uiImage: UIImage(data: firstImage) ?? UIImage())
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 50, height: 50)
+                            }
+
+                            VStack(alignment: .leading) {
+                                Text(note.name)
+                                    .font(.headline)
+                                    .accessibilityLabel("\(note.name) note")
+
+//                                Text("Folder: \()")
+//                                    .font(.subheadline)
+//                                    .foregroundColor(.gray)
+
+//                                Text("Last modified: \(note.lastModifiedDate, formatter: DateFormatter())")
+//                                    .font(.subheadline)
+//                                    .foregroundColor(.gray)
+                            }
+                        }
                     }
+                    .accessibilityAddTraits(.isButton)
                 }
             }
+            .navigationTitle("All iCloud")
         }
     }
 }

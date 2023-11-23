@@ -25,6 +25,7 @@ struct ContentView: View {
     @State private var image: [Data] = []
     
     var body: some View {
+        
         NavigationStack {
             //to do: Expandable list
             List{
@@ -73,20 +74,25 @@ struct ContentView: View {
                     .accessibilityAddTraits([.isButton])
                     .accessibilityLabel("Trash")
                 } header: {
+                    ///List identifier
                     Text("iCloud")
+                        .foregroundStyle(Color("TextColor"))
                         .textCase(.none)
-                        .font(.headline)
-                    
+                        .font(.callout)
+                        .bold()
                 }
                 ///accessibility modifier
-//                .accessibilityAddTraits([.isHeader])
-//                .accessibilityLabel("iCloud list")
+                //                .accessibilityAddTraits([.isHeader])
+                //                .accessibilityLabel("iCloud list")
                 Section{
                     
                 } header: {
+                    ///List identifier
                     Text("Gmail")
+                        .foregroundStyle(Color("TextColor"))
                         .textCase(.none)
-                        .font(.headline)
+                        .font(.callout)
+                        .bold()
                 }
                 //                ForEach (folders){ folder in // Access the folders array from the Folders object
                 //                    NavigationLink(destination: folder.view){
@@ -95,16 +101,17 @@ struct ContentView: View {
                 //                }
                 
             }
+            .listStyle(InsetGroupedListStyle())
             .navigationTitle("Folders")
             .toolbar{
-                EditButton()
-                    .foregroundStyle(.yellow)
-                ///accessibility modifier
-                    .accessibilitySortPriority(1)
-                    .accessibilityAddTraits([.isButton])
-                    .accessibilityLabel("Edit")
-            }
-            .toolbar{
+                ToolbarItemGroup{
+                    EditButton()
+                        .foregroundStyle(.yellow)
+                    ///accessibility modifier
+                        .accessibilitySortPriority(1)
+                        .accessibilityAddTraits([.isButton])
+                        .accessibilityLabel("Edit")
+                }
                 ToolbarItemGroup(placement: .bottomBar){
                     Image(systemName: "folder.badge.plus")
                         .foregroundStyle(.yellow)
@@ -123,7 +130,7 @@ struct ContentView: View {
                 }
             }
             .searchable(text: $searchText){
-
+                
             }
         }
         .accentColor(.yellow)
