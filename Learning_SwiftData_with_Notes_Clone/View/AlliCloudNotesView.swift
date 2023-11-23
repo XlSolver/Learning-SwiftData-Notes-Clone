@@ -10,10 +10,10 @@ import SwiftData
 
 struct AlliCloudNotesView: View {
     @Environment (\.modelContext) private var context
-    @Query var notes: [Notes]
+    @Query (sort: \Notes.date, order: .reverse) var notes: [Notes]
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 ForEach(notes, id: \.self) { note in
                     NavigationLink(destination: NoteDetailView(note: note)) {
