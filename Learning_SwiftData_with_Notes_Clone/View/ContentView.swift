@@ -23,14 +23,21 @@ struct ContentView: View {
     @State private var foldersList: [Folders] = []
     @State var folderName: String = ""
     @State private var image: [Data] = []
+    @State private var revealDetailsiCloud: Bool = false
+    @State private var revealDetailsGmail: Bool = false
     
     var body: some View {
         
         NavigationStack {
-            //to do: Expandable list
+            
+            
             List{
-                ///iCloud section
-                Section {
+                ///Expandable group for icloud
+                DisclosureGroup("iCloud",isExpanded: $revealDetailsiCloud) {
+                    //need to set disc group label bold but not children items
+                    ///iCloud section
+                    //                    Section {
+                    
                     NavigationLink(destination: AlliCloudNotesView()) {
                         ///System image and text
                         HStack{
@@ -73,27 +80,28 @@ struct ContentView: View {
                     ///accessibility modifier
                     .accessibilityAddTraits([.isButton])
                     .accessibilityLabel("Trash")
-                } header: {
-                    ///List identifier
-                    Text("iCloud")
-                        .foregroundStyle(Color("TextColor"))
-                        .textCase(.none)
-                        .font(.callout)
-                        .bold()
+                    //                    } header: {
+                    //                        ///List identifier
+                    //                        Text("iCloud")
+                    //                            .foregroundStyle(Color("TextColor"))
+                    //                            .textCase(.none)
+                    //                            .font(.callout)
+                    //                            .bold()
+                    //                    }
                 }
+                .listRowBackground(Color.clear)
+                
+                
+                
+                
+                
                 ///accessibility modifier
                 //                .accessibilityAddTraits([.isHeader])
                 //                .accessibilityLabel("iCloud list")
-                Section{
+                DisclosureGroup("Gmail", isExpanded: $revealDetailsGmail) {
                     
-                } header: {
-                    ///List identifier
-                    Text("Gmail")
-                        .foregroundStyle(Color("TextColor"))
-                        .textCase(.none)
-                        .font(.callout)
-                        .bold()
                 }
+                .listRowBackground(Color.clear)
                 //                ForEach (folders){ folder in // Access the folders array from the Folders object
                 //                    NavigationLink(destination: folder.view){
                 //                        Text(folder.name)
